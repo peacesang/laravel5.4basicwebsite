@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 
 class MessagesController extends Controller
 {
@@ -11,8 +12,17 @@ class MessagesController extends Controller
     {
         $this->validate($request,[
             'name'=>'required',
-            'email'=>'required'
+            'email'=>'required',
+            'message'=>'required'
         ]);
-        return $request->email;
+        
+
+        $message=new Message;
+        $message->name=$request->name;
+        $message->email=$request->email;
+        $message->message=$request->message;
+        
+        $message->save();
+        return redirect('/')->with('success','messege sent');
     }
 }
