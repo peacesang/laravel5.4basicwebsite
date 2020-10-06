@@ -16,12 +16,13 @@
             @endif
                 <div class="row">
                         <div class="col-md-8">
+                                @include('inc.messages')
                                 @yield('content') 
                         </div>
                         <div class="col-md-4">
                                 @include('inc.sidebar')
                         </div>
-                    </div>
+                </div>
         </div>
 
 
